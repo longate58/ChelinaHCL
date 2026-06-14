@@ -1045,3 +1045,95 @@ section {
         padding: 1.5rem;
     }
 }
+
+
+// ===== ANIMACIÓN DE ENTRADA PARA LA SECCIÓN ABOUT =====
+const aboutSection = document.querySelector('.about');
+
+if (aboutSection) {
+    const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animar elementos secuencialmente
+                const elements = entry.target.querySelectorAll(
+                    '.about-main-title, .about-intro, .urgency-box-inline, ' +
+                    '.about-image-wrapper, .about-quick-stats, .benefits-compact-grid, ' +
+                    '.comparison-optimized, .process-simplified, .cta-integrated'
+                );
+                
+                elements.forEach((el, index) => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                    
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, 100);
+                });
+                
+                aboutObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    aboutObserver.observe(aboutSection);
+}
+
+// ===== EFECTO PARALLAX SUAVE EN LA IMAGEN ABOUT =====
+window.addEventListener('scroll', () => {
+    const aboutImage = document.querySelector('.about-image-wrapper img');
+    const aboutSection = document.querySelector('.about');
+    
+    if (aboutImage && aboutSection) {
+        const sectionTop = aboutSection.offsetTop;
+        const sectionHeight = aboutSection.offsetHeight;
+        const scrolled = window.pageYOffset;
+        
+        if (scrolled > sectionTop - window.innerHeight && 
+            scrolled < sectionTop + sectionHeight) {
+            const relativeScroll = scrolled - sectionTop;
+            aboutImage.style.transform = `translateY(${relativeScroll * 0.1}px) scale(1.05)`;
+        }
+    }
+});
+
+// ===== ANIMACIÓN DE NÚMEROS EN STATS RÁPIDOS =====
+const animateQuickStats = () => {
+    const quickStats = document.querySelectorAll('.quick-stat .stat-val');
+    
+    quickStats.forEach(stat => {
+        const text = stat.textContent;
+        const hasK = text.includes('K');
+        const value = parseInt(text.replace('K', ''));
+        
+        if (hasK) {
+            let current = 0;
+            const increment = value / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= value) {
+                    stat.textContent = text;
+                    clearInterval(timer);
+                } else {
+                    stat.textContent = Math.floor(current) + 'K';
+                }
+            }, 30);
+        }
+    });
+};
+
+// Trigger animación de stats cuando sean visibles
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateQuickStats();
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const quickStatsContainer = document.querySelector('.about-quick-stats');
+if (quickStatsContainer) {
+    statsObserver.observe(quickStatsContainer);
+}
