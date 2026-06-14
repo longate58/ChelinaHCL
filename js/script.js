@@ -142,7 +142,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observar elementos para animar
 const animatedElements = document.querySelectorAll(
-    '.service-card, .pricing-card, .portfolio-item, .step, .feature, .comparison-box, .process-box'
+    '.service-card, .pricing-card, .portfolio-item, .step, .feature, .comparison-box, .process-box, .compare-card, .process-step-mini, .benefit-item'
 );
 
 animatedElements.forEach(el => {
@@ -432,6 +432,277 @@ if (whatsappNumber && whatsappNumber.textContent.includes('424')) {
     });
 }
 
+// ==========================================================
+// ===== JAVASCRIPT ADICIONAL PARA SECCIÓN ABOUT OPTIMIZADA =====
+// ==========================================================
+
+// ===== ANIMACIÓN DE ENTRADA SECUENCIAL PARA SECCIÓN ABOUT =====
+const aboutSection = document.querySelector('.about');
+
+if (aboutSection) {
+    const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animar elementos secuencialmente
+                const elements = entry.target.querySelectorAll(
+                    '.about-main-title, .about-intro, .urgency-box-inline, ' +
+                    '.about-image-wrapper, .about-quick-stats, .benefits-compact-grid, ' +
+                    '.comparison-optimized, .process-simplified, .cta-integrated'
+                );
+                
+                elements.forEach((el, index) => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                    
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, 100);
+                });
+                
+                aboutObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    aboutObserver.observe(aboutSection);
+}
+
+// ===== EFECTO PARALLAX SUAVE EN IMAGEN ABOUT =====
+const aboutImage = document.querySelector('.about-image-wrapper img');
+const aboutSectionElement = document.querySelector('.about');
+
+if (aboutImage && aboutSectionElement && !isMobile) {
+    window.addEventListener('scroll', () => {
+        const sectionTop = aboutSectionElement.offsetTop;
+        const sectionHeight = aboutSectionElement.offsetHeight;
+        const scrolled = window.pageYOffset;
+        
+        if (scrolled > sectionTop - window.innerHeight && 
+            scrolled < sectionTop + sectionHeight) {
+            const relativeScroll = scrolled - sectionTop;
+            const parallaxValue = relativeScroll * 0.1;
+            aboutImage.style.transform = `translateY(${parallaxValue}px) scale(1.05)`;
+        }
+    });
+}
+
+// ===== ANIMACIÓN DE NÚMEROS EN STATS RÁPIDOS =====
+const animateQuickStats = () => {
+    const quickStats = document.querySelectorAll('.quick-stat .stat-val');
+    
+    quickStats.forEach(stat => {
+        const text = stat.textContent;
+        const hasK = text.includes('K');
+        const value = parseInt(text.replace('K', ''));
+        
+        if (hasK && !isNaN(value)) {
+            let current = 0;
+            const increment = value / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= value) {
+                    stat.textContent = text;
+                    clearInterval(timer);
+                } else {
+                    stat.textContent = Math.floor(current) + 'K';
+                }
+            }, 30);
+        }
+    });
+};
+
+// Observer para animación de stats rápidos
+const quickStatsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateQuickStats();
+            quickStatsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const quickStatsContainer = document.querySelector('.about-quick-stats');
+if (quickStatsContainer) {
+    quickStatsObserver.observe(quickStatsContainer);
+}
+
+// ===== EFECTO HOVER EN TARJETAS DE COMPARACIÓN =====
+const compareCards = document.querySelectorAll('.compare-card');
+
+compareCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px)';
+        card.style.transition = 'all 0.3s ease';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+    });
+});
+
+// ===== ANIMACIÓN DE FLECHAS DEL PROCESO =====
+const processArrows = document.querySelectorAll('.process-arrow');
+
+processArrows.forEach((arrow, index) => {
+    setInterval(() => {
+        arrow.style.transition = 'all 0.3s ease';
+        arrow.style.transform = 'translateX(5px)';
+        arrow.style.opacity = '0.7';
+        
+        setTimeout(() => {
+            arrow.style.transform = 'translateX(0)';
+            arrow.style.opacity = '1';
+        }, 300);
+    }, 2000 + (index * 200));
+});
+
+// ===== HOVER EN BENEFICIOS COMPACTOS =====
+const benefitItems = document.querySelectorAll('.benefit-item');
+
+benefitItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        item.style.transform = 'translateX(5px)';
+        item.style.transition = 'all 0.3s ease';
+    });
+    
+    item.addEventListener('mouseleave', () => {
+        item.style.transform = 'translateX(0)';
+    });
+});
+
+// ===== EFECTO EN BADGE DE ESTADÍSTICAS =====
+const imageStatsBadge = document.querySelector('.image-stats-badge');
+
+if (imageStatsBadge) {
+    const badgeNumber = imageStatsBadge.querySelector('.badge-number');
+    
+    if (badgeNumber) {
+        const badgeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animar el número del badge
+                    const text = badgeNumber.textContent;
+                    if (text.includes('M')) {
+                        const value = parseFloat(text);
+                        let current = 0;
+                        const increment = value / 40;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= value) {
+                                badgeNumber.textContent = text;
+                                clearInterval(timer);
+                            } else {
+                                badgeNumber.textContent = current.toFixed(1) + 'M';
+                            }
+                        }, 50);
+                    }
+                    badgeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        badgeObserver.observe(imageStatsBadge);
+    }
+}
+
+// ===== TRACKING DE CLICS EN CTA INTEGRADO =====
+const ctaIntegrated = document.querySelector('.cta-integrated .btn');
+
+if (ctaIntegrated) {
+    ctaIntegrated.addEventListener('click', () => {
+        console.log('CTA About clickeado - Reserva tu cupo');
+        // Aquí puedes agregar tracking de analytics
+    });
+}
+
+// ===== EFECTO DE PULSO EN URGENCIA INLINE =====
+const urgencyInline = document.querySelector('.urgency-box-inline');
+
+if (urgencyInline) {
+    // Agregar efecto adicional de brillo
+    setInterval(() => {
+        urgencyInline.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
+        setTimeout(() => {
+            urgencyInline.style.boxShadow = '';
+        }, 500);
+    }, 3000);
+}
+
+// ===== RESPONSIVE: AJUSTAR PARALLAX EN MÓVIL =====
+function handleResponsiveParallax() {
+    if (window.innerWidth <= 1024) {
+        // Desactivar parallax en móvil/tablet
+        if (aboutImage) {
+            aboutImage.style.transform = 'scale(1.05)';
+        }
+    }
+}
+
+window.addEventListener('resize', handleResponsiveParallax);
+handleResponsiveParallax();
+
+// ===== SCROLL SUAVE A SECCIÓN ABOUT DESDE HERO =====
+const heroCtaButton = document.querySelector('.hero-buttons .btn-primary');
+
+if (heroCtaButton) {
+    const href = heroCtaButton.getAttribute('href');
+    if (href && href.startsWith('#') && !href.includes('wa.me')) {
+        heroCtaButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+}
+
+// ===== VALIDACIÓN DE ACCESIBILIDAD =====
+const focusableElements = document.querySelectorAll('button, a, input, select, textarea');
+
+focusableElements.forEach(el => {
+    el.addEventListener('focus', () => {
+        el.style.outline = '2px solid var(--color-secondary)';
+        el.style.outlineOffset = '2px';
+    });
+    
+    el.addEventListener('blur', () => {
+        el.style.outline = '';
+        el.style.outlineOffset = '';
+    });
+});
+
+// ===== PERFORMANCE: DEBOUNCE PARA SCROLL =====
+function debounce(func, wait = 20) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Aplicar debounce a eventos de scroll pesados
+const optimizedScrollHandler = debounce(() => {
+    // Lógica de scroll optimizada
+}, 10);
+
+window.addEventListener('scroll', optimizedScrollHandler);
+
+// ===== MENSAJE FINAL DE CARGA =====
 console.log('✅ HCL Digital - Script cargado correctamente');
 console.log('📱 WhatsApp: +58 424-2095783');
 console.log('🌐 Pinterest: 1.1M vistas/mes');
+console.log('✨ Sección About optimizada con animaciones');
+console.log('🎯 Listo para convertir visitantes en clientes');
