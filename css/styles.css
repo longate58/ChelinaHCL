@@ -1269,7 +1269,7 @@ section {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
     .hero-title {
         font-size: 1.8rem;
     }
