@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- URL Principal: Portafolio de Chelina HCL (Home) -->
+    <url>
+        <loc>https://longate58.github.io/ChelinaHCL/</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://longate58.github.io/ChelinaHCL/index.html</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 1. Nicho: Moda Casual & Denim (Moda con Raíces Venezolanas) -->
+    <!-- Optimizado para SEO de herencia cultural y estilo cotidiano B2B -->
+    <url>
+        <loc>https://longate58.github.io/ChelinaHCL/moda-con-raices-venezolanas-casual-denim.html</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 2. Nicho: Alta Costura & Eventos (Turismo a lo Venezolano con Estilo) -->
+    <!-- Optimizado para marcas de alta costura, hotelería boutique y locaciones exclusivas -->
+    <url>
+        <loc>https://longate58.github.io/ChelinaHCL/turismo-venezolano-estilo-alta-costura.html</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 3. Nicho: Estilo Internacional & Viajes (Lifestyle Premium Afrocaribeño) -->
+    <!-- Enfocado en el bienestar de lujo y el estilo de vida premium caribeño -->
+    <url>
+        <loc>https://longate58.github.io/ChelinaHCL/lifestyle-premium-afrocaribeno-viajes.html</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 4. Landing Page B2B Internacional: Modelo Virtual Afrocaribeña -->
+    <!-- Long-tail estratégico para diseñadores globales buscando reducir costos en un 90% -->
+    <url>
+        <loc>https://longate58.github.io/ChelinaHCL/afro-caribbean-virtual-model-b2b-fashion.html</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 5. Landing Page de Alta Fricción: Detrás de Cámara y Storyboard Técnico (Hotel Humboldt) -->
+    <!-- Diseñada para el CTA de curiosidad: Storyboard técnico e Identity Lock JSON -->
+    <url>
+        <loc>https://longate58.github.io/ChelinaHCL/behind-the-scenes-storyboard-tecnico-humboldt.html</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+</urlset>
