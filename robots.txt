@@ -1,0 +1,21 @@
+# robots.txt para https://longate58.github.io/ChelinaHCL/
+# Optimizado para posicionar "Moda con raíces venezolanas" y captar tráfico B2B de alta costura
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /moda-con-raices-venezolanas-casual-denim.html
+Allow: /turismo-venezolano-estilo-alta-costura.html
+Allow: /lifestyle-premium-afrocaribeno-viajes.html
+Allow: /afro-caribbean-virtual-model-b2b-fashion.html
+Allow: /behind-the-scenes-storyboard-tecnico-humboldt.html
+Allow: /css/styles.css
+Allow: /js/script.js
+
+# Evitar la indexación de archivos temporales o de desarrollo
+Disallow: /drafts/
+Disallow: /backups/
+Disallow: /temp/
+
+# Indicar la ruta del sitemap optimizado
+Sitemap: https://longate58.github.io/ChelinaHCL/sitemap.xml
