@@ -1,21 +1,26 @@
-# robots.txt para https://longate58.github.io/ChelinaHCL/
-# Optimizado para posicionar "Moda con raíces venezolanas" y captar tráfico B2B de alta costura
+# robots.txt para https://longate58.github.io/ChelinaHCL/ 
+# Optimizado para Producción Virtual 4K B2B, Luxury Tech-Fashion &amp; Parasite SEO Global 
+# Respaldado por +10.17M de Impresiones Orgánicas | HCL Digital Studio LLC
 
-User-agent: *
+User-agent: * 
+Allow: / 
+Allow: /index.html 
+Allow: /css/ 
+Allow: /js/ 
+Allow: /images/
+
+# Permitir explícitamente motores de búsqueda visual y descubrimiento (Pinterest &amp; Google Images) 
+User-agent: Pinterestbot 
 Allow: /
-Allow: /index.html
-Allow: /moda-con-raices-venezolanas-casual-denim.html
-Allow: /turismo-venezolano-estilo-alta-costura.html
-Allow: /lifestyle-premium-afrocaribeno-viajes.html
-Allow: /afro-caribbean-virtual-model-b2b-fashion.html
-Allow: /behind-the-scenes-storyboard-tecnico-humboldt.html
-Allow: /css/styles.css
-Allow: /js/script.js
 
-# Evitar la indexación de archivos temporales o de desarrollo
-Disallow: /drafts/
-Disallow: /backups/
-Disallow: /temp/
+User-agent: Googlebot-Image 
+Allow: /
 
-# Indicar la ruta del sitemap optimizado
+# Evitar la indexación de carpetas de desarrollo, borradores o archivos sensibles 
+Disallow: /drafts/ 
+Disallow: /backups/ 
+Disallow: /temp/ 
+Disallow: /private/
+
+# Ruta oficial del Sitemap XML 
 Sitemap: https://longate58.github.io/ChelinaHCL/sitemap.xml
