@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="[suspicious link removed]"
-        xmlns:image="[suspicious link removed]">
-  
+<urlset xmlns="[suspicious link removed]">
   <url>
     <loc>https://longate58.github.io/ChelinaHCL/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    
-    <image:image>
-      <image:loc>https://longate58.github.io/ChelinaHCL/images/og-image.png</image:loc>
-      <image:title>Chelina HCL — Embajadora Virtual 4K &amp; HCL Digital Studio</image:title>
-      <image:caption>Producción fotográfica 4K con inmutabilidad biométrica. Ahorro del 90% en costos logísticos para marcas de moda.</image:caption>
-    </image:image>
-
-    <image:image>
-      <image:loc>[suspicious link removed]</image:loc>
-      <image:title>Chelina HCL — Fotografía Editorial de Alta Costura</image:title>
-      <image:caption>Estilo de iluminación fotométrica inspirado en Paolo Roversi y Peter Lindbergh.</image:caption>
-    </image:image>
   </url>
-
 </urlset>
