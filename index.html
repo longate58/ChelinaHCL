@@ -54,9 +54,6 @@
     <!-- 👆 FIN DEL CÓDIGO PEGADO 👆 -->
     <!-- ============================================================ -->
 
-
-
-  
 </head>
 <body>
     <!-- Navegación -->
@@ -364,9 +361,6 @@
         </div>
     </section>
 
-
-
-    
 <!-- Sobre Chelina - SECCIÓN REESTRUCTURADA PARA MEJOR ARMONÍA -->
 <section class="about">
     <div class="container">
@@ -568,40 +562,41 @@
                 </div>
 
                 <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="nombre">Brand Name *</label>
-                        <input type="text" id="nombre" name="nombre" required>
+                    <div class="form-group">   
+                        <label for="nombre">Brand Name*</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Your brand or company">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email">Corporate Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="correo@tumarca.com">
                     </div>
+
                     <div class="form-group">
                         <label for="tipo">Type of Business *</label>
                         <select id="tipo" name="tipo" required>
-                            <option value="">Select an option</option>
-                            <option value="moda">Fashion</option>
-                            <option value="turismo">Tourismo</option>
-                            <option value="lifestyle">Lifestyle</option>
-                            <option value="otros">Others</option>
+                            <option value="">Select a sector</option>
+                            <option value="moda">Moda &amp; Clothinga</option> 
+                            <option value="joyeria">Joyería &amp; Accessories</option> 
+                            <option value="turismo">Turismo &amp; Resort Wear</option> 
+                            <option value="otros">Another Boutique Sector</option>
                         </select>
                     </div>
+
                     <div class="form-group">
-                        <label for="contenido">What type of content do you need?</label>
-                        <textarea id="contenido" name="contenido" rows="4" placeholder="Tell me about your project..."></textarea>
+                        <label for="contenido">Project Details *</label>
+                        <textarea id="contenido" name="contenido" rows="3" required placeholder="Tell us about your next collection..."></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="presupuesto">Estimated Budget</label>
-                        <select id="presupuesto" name="presupuesto">
-                            <option value="">Select a range</option>
-                            <option value="0-50">USD $0-50</option>
-                            <option value="50-100">USD $50-100</option>
-                            <option value="100-200">USD $100-200</option>
-                            <option value="200+">USD $200+</option>
-                        </select>
+
+                    <!-- CHECKBOX DE CONSENTIMIENTO DE PRIVACIDAD -->
+                    <div class="form-group consent-group" style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0;">
+                        <input type="checkbox" id="consent" name="consent" required style="width: auto; margin-top: 4px;">
+                        <label for="consent" style="font-size: 0.85rem; color: #6B6B6B; line-height: 1.4;">
+                            I accept the <a href="about:invalid#zClosurez">Privacy Policy/a> and I authorize HCL Digital Studio to process my data to send the commercial proposal.
+                        </label>
                     </div>
+
                     <button type="submit" class="btn btn-primary btn-full">
-                        <i class="fas fa-paper-plane"></i> Send Inquiry
+                        <i></i> Request a free sample of a watermarked image within 24 hours via WhatsApp
                     </button>
                 </form>
             </div>
