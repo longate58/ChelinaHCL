@@ -635,10 +635,25 @@
             </div>
         </div>       
     </footer>
-    
 
+    <!-- BANNER FLOTANTE DE COOKIES -->
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1A1A1A; color: #FFF; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 9999; border-top: 2px solid #D4AF37; font-size: 0.85rem;"&gt;>
+        <span>Este sitio utiliza cookies técnicas para garantizar la mejor experiencia B2B y medir analíticas de tráfico. Al continuar navegando, aceptas nuestra <a href="about:invalid#zClosurez">Política de Cookies</a>.</span>
+        <button onclick="acceptCookies()" style="background: #8B4513; color: #FFF; border: none; padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-left: 15px;">Aceptar</button>    
+    </div>
 
+    <!-- MODAL 1: POLÍTICA DE PRIVACIDAD -->
+    <div id="privacy-modal" class="legal-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; justify-content:center; align-items:center;"&gt;
+        <div style\="background:#FFF; color:#1A1A1A; max-width:700px; width:90%; max-height:80vh; overflow-y:auto; padding:30px; border-radius:15px; position:relative;"&gt;
+            <span onclick="closeModal('privacy-modal')" style="position:absolute; top:15px; right:20px; font-size:1.5rem; cursor:pointer; font-weight:bold;"&gt;×>×</span>
+            <h3 style="font-family:'Playfair Display', serif; color:#8B4513; margin-bottom:15px;"&gt;Política de Privacidad></h3> 
+            <p><strong>1\. Data Collection: HCL Digital Studio only collects the information strictly necessary (brand name, corporate email and project details) to process B2B business requests.</p> 
+            <p><strong>2\. Use of Information:</strong> The data provided will not be sold or shared with third parties without prior express consent.</p> 
+            <p><strong>3\. User Rights:</strong> You can request the complete deletion of your data from our databases at any time by sending a direct message to our official WhatsApp.</p>
+        </div>
+    </div>
 
+    <!-- MODAL 2: TÉRMINOS Y LICENCIA B2B -->
 
     
 </body>
