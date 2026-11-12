@@ -750,7 +750,23 @@
         </div>
     </div>
     </footer>
+    <script>
+        /* ==========================================================================
+       LÓGICA DEL DIAGNÓSTICO INTERACTIVO 4K (HCL DIGITAL STUDIO)
+       ========================================================================== */
 
+        var quizAnswers = { step1: '', step2: '', step3: '', step4: '', step5: '', recommendedPlan: '$97 USD (Campaña Profesional 4K)' };
+
+        function selectQuizOption(step, answerText, suggestedPlan) { quizAnswers['step' + step] = answerText; if (suggestedPlan) { quizAnswers.recommendedPlan = suggestedPlan; } if (step &lt; 5) { goToQuizStep(step + 1); } else { calculateQuizResult(); goToQuizStep(6); } }
+
+        function goToQuizStep(stepNum) { var steps = document.querySelectorAll('.quiz-step'); steps.forEach(function(s) { s.classList.remove('active'); }); var currentStep = document.querySelector('.quiz-step[data-step="' + stepNum + '"]'); if (currentStep) { currentStep.classList.add('active'); } var fill = document.getElementById('quiz-progress-fill'); var counter = document.getElementById('quiz-step-counter'); if (stepNum &lt;= 5) { var pct = (stepNum / 5) \* 100; if (fill) fill.style.width = pct + '%'; if (counter) counter.innerText = 'Step ' + stepNum + ' of 5'; } else { if (fill) fill.style.width = '100%'; if (counter) counter.innerText = 'Diagnostic Completed'; } }
+
+        function calculateQuizResult() { var resPlanElement = document.getElementById('res-plan'); if (resPlanElement) { resPlanElement.innerText = quizAnswers.recommendedPlan; } }
+
+        function submitQuizToWhatsApp(event) { event.preventDefault(); var brand = document.getElementById('quiz-brand-name').value; var email = document.getElementById('quiz-email').value; var consent = document.getElementById('quiz-consent').checked; if (!consent) { alert('Please accept the Privacy Policy to proceed.'); return; }
+
+        var message = "Hello HCL Digital Studio! I just completed the 4K Production Diagnostic on your website.\\n\\n" + "📌 Brand: " + brand + "\\n" + "✉️ Email: " + email + "\\n\\n" + "📊 Diagnostic Answers:\\n" + "• Stage: " + (quizAnswers.step1 || 'N/A') + "\\n" + "• Objective: " + (quizAnswers.step2 || 'N/A') + "\\n" + "• Previous Challenge: " + (quizAnswers.step3 || 'N/A') + "\\n" + "• Priority: " + (quizAnswers.step4 || 'N/A') + "\\n" + "• Timeline: " + (quizAnswers.step5 || 'N/A') + "\\n\\n" + "💡 Recommended Plan: " + quizAnswers.recommendedPlan + "\\n" + "📲 I want to claim my 24h watermarked proof of concept for 1 garment!"; var encodedMessage = encodeURIComponent(message); var whatsappUrl = "[suspicious link removed]" + encodedMessage; window.open(whatsappUrl, '\_blank'); }
     
+    </script>
 </body>
 </html>
