@@ -1,1 +1,1 @@
-Elegancia afrocaribeña para marcas de moda, turismo y lifestyle premium 
+Elegancia afrocaribeña para marcas de moda, boutique y lifestyle premium 
